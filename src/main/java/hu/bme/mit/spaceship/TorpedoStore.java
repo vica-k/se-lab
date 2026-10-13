@@ -28,20 +28,22 @@ public class TorpedoStore {
     }
   }
 
+  private Random generator = new Random();
+// cat meme link2: https://share.google/3hIxmN4C3AVyxT3p8
   public boolean fire(int numberOfTorpedos){
     if(numberOfTorpedos < 1 || numberOfTorpedos > this.torpedoCount){
-      new IllegalArgumentException("numberOfTorpedos");
+      throw new IllegalArgumentException("numberOfTorpedos");
     }
 
     boolean success = false;
 
     // simulate random overheating of the launcher bay which prevents firing
-    Random generator = new Random();
-    double r = generator.nextDouble();
+    // cat meme link1: https://share.google/sF7qsA97pwzMYlhSU
+    double r = this.generator.nextDouble();
 
     if (r >= FAILURE_RATE) {
       // successful firing
-      this.torpedoCount =- numberOfTorpedos;
+      this.torpedoCount = this.torpedoCount - numberOfTorpedos;
       success = true;
     } else {
       // simulated failure
