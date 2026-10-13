@@ -29,7 +29,7 @@ public class TorpedoStore {
   }
 
   private Random generator = new Random();
-
+// cat meme link2: https://share.google/3hIxmN4C3AVyxT3p8
   public boolean fire(int numberOfTorpedos){
     if(numberOfTorpedos < 1 || numberOfTorpedos > this.torpedoCount){
       throw new IllegalArgumentException("numberOfTorpedos");
